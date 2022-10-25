@@ -2,7 +2,7 @@ name: test-github-actions
 run-name: test
 on: [push]
 jobs:
-  check-bats-version:
+  check-code-style:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
