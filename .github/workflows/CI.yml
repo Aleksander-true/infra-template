@@ -1,6 +1,9 @@
 name: CI
 run-name: test
-on: [push]
+on: 
+  push: 
+  tags-ignore:
+    - release/*
 jobs:
   check-code-style:
     runs-on: ubuntu-latest
