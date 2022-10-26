@@ -1,7 +1,9 @@
 name: CI
 run-name: test
 on: 
-  push: 
+  push:
+    branches: 
+      - '**'
     tags-ignore:
       - release/*
 jobs:
