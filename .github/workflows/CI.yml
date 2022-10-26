@@ -1,4 +1,4 @@
-name: test-github-actions
+name: CI
 run-name: test
 on: [push]
 jobs:
