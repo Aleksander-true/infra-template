@@ -2,8 +2,6 @@ name: CI
 run-name: linter
 on: 
   push:
-    branches: 
-      - '**'
     tags-ignore:
       - release/*
 jobs:
