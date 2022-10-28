@@ -26,7 +26,6 @@ jobs:
       - name: Build project
         run: npm run build
   edit-ticket:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - shell: bash
