@@ -16,9 +16,9 @@ AUTHHEADER="Authorization: Bearer $IAMTOKEN"
 IDHEADER="X-Org-ID: $COMPANY_ID"
 TICKET="HOMEWORKSHRI-140"
 
-DATA="Заголовок Заголовок Заголовок 12344"
+#TICKET_TEXT="Заголовок Заголовок Заголовок 12344"
 
-TEXT=$(curl --write-out %{http_code} -H "$AUTHHEADER" -H "$IDHEADER" -d "{\"description\": \"$DATA\"}" -X PATCH "https://api.tracker.yandex.net/v2/issues/$TICKET" )
+TEXT=$(curl --write-out %{http_code} -H "$AUTHHEADER" -H "$IDHEADER" -d "{\"description\": \"$TICKET_TEXT\"}" -X PATCH "https://api.tracker.yandex.net/v2/issues/$TICKET" )
 
 HTTPCODE=$(echo $TEXT | grep -Po '...$')
 

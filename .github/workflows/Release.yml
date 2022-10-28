@@ -1,30 +1,9 @@
 name: Release
 on:
   push:
-    tags: 
+    tags:
       - release/[0-9]+.[0-9]+.[0-9]+
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16.16.0'
-      - run: npm run ci
-      - run: npm run lint
-  build:
-    needs: lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16.16.0'
-      - name: Install dependencies
-        run: npm install
-      - name: Build project
-        run: npm run build
   edit-ticket:
     needs: build
     runs-on: ubuntu-latest
@@ -33,7 +12,8 @@ jobs:
         env:
           YA_TOKEN: ${{ secrets.YA_TOKEN }}
           COMPANY_ID: ${{ secrets.COMPANY_ID }}
+          TICKET_TEXT: "НОВЫЙ ЗАГОЛОВОК"
         run: |
-         chmod +x ./scripts/edit_ticket.sh
-         ./scripts/edit_ticket.sh >> $EXIT_STATUS
-          echo "Exit status= $EXIT_STATUS"
+          chmod +x ./scripts/edit_ticket.sh
+          ./scripts/edit_ticket.sh >> $EXIT_STATUS
+           echo "Exit status= $EXIT_STATUS"
