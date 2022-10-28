@@ -16,4 +16,4 @@ jobs:
         run: |
           chmod +x ./scripts/edit_ticket.sh
           ./scripts/edit_ticket.sh >> $EXIT_STATUS
-          echo "Exit status= $EXIT_STATUS"
+          echo "Exit status= $EXIT_STATUS "
