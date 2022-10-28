@@ -13,6 +13,6 @@ jobs:
           COMPANY_ID: ${{ secrets.COMPANY_ID }}
           TICKET_TEXT: "НОВЫЙ ЗАГОЛОВОК"
         run: |
-          chmod +x ./scripts/edit_ticket.sh
-          ./scripts/edit_ticket.sh >> $EXIT_STATUS
+          chmod +x scripts/edit_ticket.sh
+          scripts/edit_ticket.sh >> $EXIT_STATUS
           echo "Exit status= $EXIT_STATUS "
