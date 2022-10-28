@@ -12,8 +12,7 @@ jobs:
         env:
           YA_TOKEN: ${{ secrets.YA_TOKEN }}
           COMPANY_ID: ${{ secrets.COMPANY_ID }}
-          TICKET_TEXT: "Ответственный за релиз ${GITHUB_ACTOR} \n 
-          коммиты, попавшие в релиз: \n"
+          TICKET_TEXT: "Ответственный за релиз ${GITHUB_ACTOR} \n коммиты, попавшие в релиз: \n"
         run: |
           chmod +x .github/workflows/scripts/edit_ticket.sh
           .github/workflows/scripts/edit_ticket.sh
