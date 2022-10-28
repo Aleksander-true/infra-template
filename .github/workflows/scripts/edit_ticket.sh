@@ -2,7 +2,7 @@
 #!/bin/bash
 echo 'Get token to patch ticket'
 
-HEADER="Content-Type: application/json"
+HEADER="Content-Type:application/json"
 URL="https://iam.api.cloud.yandex.net/iam/v1/tokens"
 
 RESULT=$(curl -d "{'yandexPassportOauthToken': '$YA_TOKEN' }" -H $HEADER -X POST $URL)
