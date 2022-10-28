@@ -25,3 +25,15 @@ jobs:
         run: npm install
       - name: Build project
         run: npm run build
+  edit-ticket:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        env:
+          YA_TOKEN: ${{ secrets.YA_TOKEN }}
+          COMPANY_ID: ${{ secrets.COMPANY_ID }}
+        run: |
+         chmod +x ./scripts/edit_ticket.sh
+         ./scripts/edit_ticket.sh >> $EXIT_STATUS
+          echo "Exit status= $EXIT_STATUS"
