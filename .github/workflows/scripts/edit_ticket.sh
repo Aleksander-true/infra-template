@@ -5,6 +5,10 @@ echo 'Start script'
 HEADER="Content-Type: application/json"
 URL="https://iam.api.cloud.yandex.net/iam/v1/tokens"
 
+echo "YA_TOKEN $YA_TOKEN"
+echo "COMPANY_ID $COMPANY_ID"
+echo "TICKET_TEXT $TICKET_TEXT"
+
 RESULT=$(curl -d "{'yandexPassportOauthToken': '$YA_TOKEN' }" -H $HEADER -X POST $URL)
 echo "Rezult = $RESULT"
 
@@ -15,6 +19,8 @@ echo "IAMTOKEN $IAMTOKEN"
 AUTHHEADER="Authorization: Bearer $IAMTOKEN"
 IDHEADER="X-Org-ID: $COMPANY_ID"
 TICKET="HOMEWORKSHRI-140"
+
+echo "IDHEADER $IDHEADER"
 
 #TICKET_TEXT="Заголовок Заголовок Заголовок 12344"
 
