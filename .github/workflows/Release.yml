@@ -9,6 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - shell: bash
+        with:
+          - fetch-depth: 0
         env:
           YA_TOKEN: ${{ secrets.YA_TOKEN }}
           COMPANY_ID: ${{ secrets.COMPANY_ID }}
