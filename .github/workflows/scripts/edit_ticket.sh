@@ -1,5 +1,8 @@
 
 #!/bin/bash
+
+TICKET_TEXT: "Ответственный за релиз $GITHUB_ACTOR коммиты, попавшие в релиз:"
+
 echo 'Get token to patch ticket'
 
 HEADER="Content-Type:application/json"
