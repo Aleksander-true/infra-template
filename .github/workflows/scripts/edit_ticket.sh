@@ -6,7 +6,7 @@ PREVIOUS_TAG=$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --m
 
 COMMITS_BETWEN=$(git log --pretty=format:"%h  %cn  %s %D" $PREVIOUS_TAG..$LATEST_TAG | grep -v tag)
 
-TICKET_TEXT="Ответственный за релиз $GITHUB_ACTOR  коммиты, попавшие в релиз:  $COMMITS_BETWEN"
+TICKET_TEXT="Ответственный за релиз: $GITHUB_ACTOR коммиты вошедшие в релиз $COMMITS_BETWEN"
 
 echo "TICKET_TEXT $TICKET_TEXT"
 
