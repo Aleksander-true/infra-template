@@ -1,8 +1,8 @@
 
 #!/bin/bash
 
-LATEST_TAG=$(git describe --abbrev=0 --tags $(git rev-list --tags --max-count=1`))
-PREVIOUS_TAG=$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1`))
+LATEST_TAG=$(git describe --abbrev=0 --tags $(git rev-list --tags --max-count=1))
+PREVIOUS_TAG=$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1))
 
 COMMITS_BETWEN=$(git log --pretty=format:"%h  %cn  %s %D" $PREVIOUS_TAG..$LATEST_TAG | grep -v tag)
 
