@@ -8,6 +8,11 @@ COMMITS_BETWEN=$(git log --pretty=format:"%h  %cn  %s %D" $PREVIOUS_TAG..$LATEST
 
 TICKET_TEXT=$"Ответственный за релиз $GITHUB_ACTOR \n коммиты, попавшие в релиз: \n $COMMITS_BETWEN"
 
+echo "LATEST_TAG $LATEST_TAG"
+echo "PREVIOUS_TAG $PREVIOUS_TAG"
+echo "COMMITS_BETWEN $COMMITS_BETWEN"
+echo "TICKET_TEXT $TICKET_TEXT"
+
 echo 'Get token to patch ticket'
 
 HEADER="Content-Type:application/json"
