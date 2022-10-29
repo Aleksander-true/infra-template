@@ -29,6 +29,8 @@ TICKET="HOMEWORKSHRI-140"
 
 TEXT=$(curl --write-out %{http_code} -H "$AUTHHEADER" -H "$IDHEADER" -d "{\"description\": \"$TICKET_TEXT\"}" -X PATCH "https://api.tracker.yandex.net/v2/issues/$TICKET" )
 
+echo "TEXT $TEXT"
+
 HTTPCODE=$(echo $TEXT | grep -Po '...$')
 
 if [ "$HTTPCODE" = "200" ]
