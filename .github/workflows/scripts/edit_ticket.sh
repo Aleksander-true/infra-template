@@ -1,7 +1,12 @@
 
 #!/bin/bash
 
-TICKET_TEXT="Ответственный за релиз $GITHUB_ACTOR коммиты, попавшие в релиз:"
+LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+PREVIOUS_TAG=$(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`)
+
+COMMITS_BETWEN=$(git log --pretty=format:"%h  %cn  %s %D" $PREVIOUS_TAG..$LATEST_TAG | grep -v tag)
+
+TICKET_TEXT=$"Ответственный за релиз $GITHUB_ACTOR \n коммиты, попавшие в релиз: \n $COMMITS_BETWEN"
 
 echo 'Get token to patch ticket'
 
