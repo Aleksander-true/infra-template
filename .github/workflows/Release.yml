@@ -36,4 +36,6 @@ jobs:
         env:
           YA_TOKEN: ${{ secrets.YA_TOKEN }}
           COMPANY_ID: ${{ secrets.COMPANY_ID }}
-        run: .github/workflows/scripts/edit_ticket.sh
+        run: |
+          chmod +x .github/workflows/scripts/edit_ticket.sh
+          .github/workflows/scripts/edit_ticket.sh
