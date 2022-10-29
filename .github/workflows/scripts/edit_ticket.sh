@@ -17,10 +17,6 @@ echo "TICKET_TEXT $TICKET_TEXT"
 
 echo 'Get token to patch ticket'
 
-YA_TOKEN="y0_AgAAAAALDu1gAATuwQAAAADSSeu0r5ILG5uCQsywHHOW391cq54U7I0"
-COMPANY_ID="7526988"
-
-
 HEADER="Content-Type:application/json"
 URL="https://iam.api.cloud.yandex.net/iam/v1/tokens"
 
