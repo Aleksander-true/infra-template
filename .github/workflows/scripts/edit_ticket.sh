@@ -1,14 +1,11 @@
 
 #!/bin/bash
-
 LATEST_TAG=$(git describe --abbrev=0 --tags $(git rev-list --tags --max-count=1))
 PREVIOUS_TAG=$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1))
 
-COMMITS_BETWEN=$(git log --pretty=format:"%h  %cn  %s %D" $PREVIOUS_TAG..$LATEST_TAG | grep -v tag)
+COMMITS_BETWEN=$(git log --pretty=format:"%h  %cn  %s %d \n" $PREVIOUS_TAG..$LATEST_TAG | grep -v tag)
 
-TICKET_TEXT="Ответственный за релиз: $GITHUB_ACTOR коммиты вошедшие в релиз $COMMITS_BETWEN"
-
-echo "TICKET_TEXT $TICKET_TEXT"
+TICKET_TEXT="Responsible for release $GITHUB_ACTOR \n commits included in the release: \n$(echo $COMMITS_BETWEN)"
 
 echo "LATEST_TAG $LATEST_TAG"
 echo "PREVIOUS_TAG $PREVIOUS_TAG"
