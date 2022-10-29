@@ -36,5 +36,4 @@ jobs:
         env:
           YA_TOKEN: ${{ secrets.YA_TOKEN }}
           COMPANY_ID: ${{ secrets.COMPANY_ID }}
-      - name: Generate ticket text and publish it
         run: .github/workflows/scripts/edit_ticket.sh
