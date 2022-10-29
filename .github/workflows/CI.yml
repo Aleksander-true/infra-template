@@ -1,9 +1,6 @@
 name: CI
 run-name: linter
-on:
-  push:
-    tags-ignore:
-      - rc-*
+on: [push]
 jobs:
   check-code-style:
     runs-on: ubuntu-latest
