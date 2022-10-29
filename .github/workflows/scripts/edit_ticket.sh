@@ -2,6 +2,7 @@
 #!/bin/bash
 LATEST_TAG=$(git describe --match "rc-*" --abbrev=0 --tags $(git rev-list --tags --max-count=1))
 PREVIOUS_TAG=$(git describe --match "rc-*" --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1))
+RELEASE_DATE=$(git log --max-count=1 --pretty=format:"%cs" $LATEST_TAG)
 
 if [ -z "$PREVIOUS_TAG" ]
 then 
@@ -10,7 +11,7 @@ else
 	COMMITS_BETWEN=$(git log --pretty=format:"%h  %cn  %s %d \n" $PREVIOUS_TAG..$LATEST_TAG | grep -v tag)
 fi
 
-TICKET_TEXT="Responsible for release $GITHUB_ACTOR \n commits included in the release: \n$(echo $COMMITS_BETWEN)"
+TICKET_TEXT="RELEASE $LATEST_TAG - $RELEASE_DATE \nResponsible for release $GITHUB_ACTOR \n commits included in the release: \n$(echo $COMMITS_BETWEN)"
 
 echo "COMMITS_BETWEN $COMMITS_BETWEN"
 echo "TICKET_TEXT $TICKET_TEXT"
