@@ -13,9 +13,6 @@ fi
 
 TICKET_TEXT="RELEASE $LATEST_TAG - $RELEASE_DATE \nResponsible for release $GITHUB_ACTOR \n commits included in the release: \n$(echo $COMMITS_BETWEN)"
 
-echo "COMMITS_BETWEN $COMMITS_BETWEN"
-echo "TICKET_TEXT $TICKET_TEXT"
-
 echo 'Get token to patch ticket'
 
 HEADER="Content-Type:application/json"
