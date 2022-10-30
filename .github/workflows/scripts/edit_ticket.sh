@@ -11,8 +11,9 @@ else
 	COMMITS_BETWEN=$(git log --pretty=format:"%h  %cn  %s %d \n" $PREVIOUS_TAG..$LATEST_TAG | grep -v tag)
 fi
 
-echo "TICKET_TEXT $TICKET_TEXT"
-echo "TITLE_TEXT $TITLE_TEXT"
+TICKET_TEXT="Responsible for release $GITHUB_ACTOR \n commits included in the release: \n$(echo $COMMITS_BETWEN)"
+TITLE_TEXT="RELEASE $LATEST_TAG - $RELEASE_DATE"
+
 echo 'Get token to patch ticket'
 
 HEADER="Content-Type:application/json"
