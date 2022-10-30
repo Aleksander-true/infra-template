@@ -11,7 +11,8 @@ else
 	COMMITS_BETWEN=$(git log --pretty=format:"%h  %cn  %s %d \n" $PREVIOUS_TAG..$LATEST_TAG | grep -v tag)
 fi
 
-TICKET_TEXT="RELEASE $LATEST_TAG - $RELEASE_DATE \nResponsible for release $GITHUB_ACTOR \n commits included in the release: \n$(echo $COMMITS_BETWEN)"
+TICKET_TEXT="Responsible for release $GITHUB_ACTOR \n commits included in the release: \n$(echo $COMMITS_BETWEN)"
+TITLE_TEXT="RELEASE $LATEST_TAG - $RELEASE_DATE"
 
 echo 'Get token to patch ticket'
 
@@ -28,7 +29,7 @@ IDHEADER="X-Org-ID: $COMPANY_ID"
 JSONHEADER="Content-Type: application/json"
 TICKET="HOMEWORKSHRI-140"
 
-TEXT=$(curl --write-out %{http_code} -H "$AUTHHEADER" -H "$IDHEADER" -d "{\"description\": \"$TICKET_TEXT\"}" -X PATCH "https://api.tracker.yandex.net/v2/issues/$TICKET" )
+TEXT=$(curl --write-out %{http_code} -H "$AUTHHEADER" -H "$IDHEADER" -d "{\"description\": \"$TICKET_TEXT\", \"summary\": \"$TITLE_TEXT\"}" -X PATCH "https://api.tracker.yandex.net/v2/issues/$TICKET" )
 
 HTTPCODE=$(echo $TEXT | grep -Po '...$')
 
